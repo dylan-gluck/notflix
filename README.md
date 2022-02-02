@@ -1,35 +1,28 @@
-<h1 align="center">NOTFLIX</h1>
-<p align="center">f@#k netflix use notflix a tool which search magnet links and stream it with peerflix</p>
+# Notflix-osx
 
-##
-<p align="center">
-<img src="./preview.gif" alt="Video Preview" width="500px">
-</p>
+Port of Bugswriter's [notflix](https://github.com/Bugswriter/notflix) to work with Mac. Updated script to use [YTS](https://yts.mx/) instead of 1337x. Grabs the first 1080p magnet link and passes to [peerflix](https://github.com/mafintosh/peerflix).
 
-> Watch this video to understand - [bugswriter's notflix](https://youtu.be/FbE19_omaWY)
+![notflix-osx](screenshot.jpg)
 
-### How does this work?
+## Usage
 
-This is a shell script. It scape 1337x and get the magnet link.
-After this it use [peerflix](https://github.com/mafintosh/peerflix) to stream the video from magnet link.
-For scraping script use simple gnu utils like sed, awk, paste, cut.
+```
+notflix [query]
+```
 
 ## Requirements
 
-* [peerflix](https://github.com/mafintosh/peerflix) - A tool to stream torrent. `sudo npm install peerflix -g`
+- [vlc](https://github.com/videolan/vlc) - VLC is a libre and open source media player and multimedia engine, focused on playing everything, and running everywhere.
+- [peerflix](https://github.com/mafintosh/peerflix) - Streaming torrent client for Node.js
 
 ## Installation
 
-### cURL
-cURL **notflix** to your **$PATH** and give execute permissions.
+Run this command to download the latest `notflix` and install it in your $PATH.
 
-```sh
-$ sudo curl -sL "https://raw.githubusercontent.com/Bugswriter/notflix/master/notflix" -o /usr/local/bin/notflix
-$ sudo chmod +x /usr/local/bin/notflix
 ```
-- To update, just do `curl` again, no need to `chmod` anymore.
-- To uninstall, simply remove `notflix` from your **$PATH**, for example `sudo rm -f /usr/local/bin/notflix.
+git clone https://github.com/dylan-gluck/notflix && cd notflix && sudo cp -f ./notflix /usr/local/bin/notflix
+```
 
 ## License
-This project is licensed under [GPL-3.0](https://raw.githubusercontent.com/Illumina/licenses/master/gpl-3.0.txt).
 
+This project is licensed under [GPL-3.0](https://raw.githubusercontent.com/Illumina/licenses/master/gpl-3.0.txt).

@@ -1,6 +1,28 @@
 #!/bin/sh
 
-query=$(printf '%s' "$*" | tr ' ' '+' )
-movie=$(curl -s https://1337x.wtf/search/$query/1/ | grep -Eo "torrent\/[0-9]{7}\/[a-zA-Z0-9?%-]*/" | head -n 1)
-magnet=$(curl -s https://1337x.wtf/$movie | grep -Po "magnet:\?xt=urn:btih:[a-zA-Z0-9]*" | head -n 1)
-peerflix -l -k $magnet
+echo """
+             ______________________
+_______________  /___  __/__  /__(_)___  __
+__  __ \  __ \  __/_  /_ __  /__  /__  |/_/
+_  / / / /_/ / /_ _  __/ _  / _  / __>  <
+/_/ /_/\____/\__/ /_/    /_/  /_/  /_/|_| (osx)
+
+notflix-osx v0.0.1
+---
+"""
+
+# Format Query
+query=$(printf '%s' "$*" | tr ' ' '+')
+echo "Searching YTS for: $query"
+
+# Search YTS for movie
+movie=$(curl -s https://yts.mx/browse-movies/$query/all/all/0/downloads/0/all | grep -Eo "https://yts.mx/movies/[a-zA-Z0-9?%-]*" | head -n 1)
+echo "Found: $movie"
+
+# Search for 1080p Magnet link
+magnets=$(curl -s $movie | grep -Eo "<a .* 1080p .*\/a>" | head -n 2)
+echo "Looking for 1080p link..."
+
+# Grab magnet and start peerflix
+magnet=$(echo $magnets | grep -Eo "magnet:\?xt=urn:btih:[a-zA-Z0-9]*" | head -n 1)
+peerflix -l -v $magnet --connections 500
