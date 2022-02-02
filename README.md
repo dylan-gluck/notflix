@@ -1,6 +1,6 @@
 # Notflix-osx
 
-Port of Bugswriter's [notflix](https://github.com/Bugswriter/notflix) to work with Mac. Updated script to use [YTS](https://yts.mx/) instead of 1337x. Grabs the first 1080p magnet link and passes to [peerflix](https://github.com/mafintosh/peerflix).
+Port of Bugswriter's [notflix](https://github.com/Bugswriter/notflix) to work with Mac. Updated script to use [YTS](https://yts.mx/) instead of 1337x. Grabs the first 1080p magnet link and passes to [peerflix](https://github.com/mafintosh/peerflix). Original bug [here](https://github.com/Bugswriter/notflix/issues/83).
 
 ![notflix-osx](screenshot.jpg)
 
